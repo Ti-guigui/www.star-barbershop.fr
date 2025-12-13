@@ -59,10 +59,10 @@ nav a:hover {
 /* === HERO === */
 .hero {
   width: 100%;
-  height: 100vh;
+  height: 70vh; /* réduit la hauteur de la partie noire */
   text-align: center;
-  padding: 120px 20px;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+  padding: 80px 20px; /* réduit le padding */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
               url("image/hero.jpg") center/cover no-repeat;
   display: flex;
   justify-content: center;
@@ -110,7 +110,7 @@ nav a:hover {
 
 /* === SECTIONS === */
 section {
-  width: 100%;       /* full width */
+  width: 100%;
   padding: 60px 20px;
   margin: auto;
   opacity: 0;
@@ -118,7 +118,8 @@ section {
   transition: all 0.8s ease;
   display: flex;
   flex-direction: column;
-  align-items: center; /* centre le contenu */
+  align-items: center;
+  scroll-margin-top: 180px; /* pour ancres */
 }
 
 section.visible {
@@ -126,26 +127,31 @@ section.visible {
   transform: translateY(0);
 }
 
-/* === INFOS / POURQUOI NOUS === */
+/* === INFOS BOX (Horaires et Tarifs) === */
 .infos, .why {
-  padding: 100px 20px;
+  padding: 80px 20px;
 }
 
-.infos-container,
-.why-grid {
+.infos-container {
   width: 100%;
   display: flex;
-  justify-content: center; /* centre les boîtes */
+  justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
 }
 
-.infos-box, .why-box {
-  flex: 0 1 300px; /* adaptable */
-  background: #111;
-  padding: 30px;
-  border-radius: 15px;
+.infos-box {
+  flex: 0 1 300px;
+  background: #1c1c1c; /* encadré élégant */
+  padding: 40px;
+  border-radius: 20px;
   text-align: center;
+  box-shadow: 0 8px 20px rgba(212,175,55,0.3);
+  transition: transform 0.3s ease;
+}
+
+.infos-box:hover {
+  transform: translateY(-5px);
 }
 
 .infos-box li {
@@ -155,11 +161,28 @@ section.visible {
   border-bottom: 1px solid #333;
 }
 
+/* === WHY BOX (Savoir-faire, Qualité, Ambiance) === */
 .why-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
+  width: 100%;
+}
+
+.why-box {
+  flex: 0 1 280px;
+  background: #222; /* encadré différent */
+  padding: 35px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(212,175,55,0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.why-box:hover {
+  transform: translateY(-5px);
+  background: #2a2a2a;
 }
 
 .why-box i {
@@ -199,7 +222,7 @@ section.visible {
 
 .member {
   text-align: center;
-  flex: 0 1 250px; /* adaptable */
+  flex: 0 1 250px;
 }
 
 .member img {
@@ -304,6 +327,7 @@ form button:hover {
   transition: all 0.4s ease;
 }
 
+/* === RESPONSIVE === */
 @media (max-width: 1024px) {
   header { flex-direction: column; text-align: center; }
   nav { margin-top: 10px; }
@@ -314,7 +338,7 @@ form button:hover {
   body { font-size: 15px; }
   header { padding: 10px 20px; }
   .logo { height: 50px; }
-  .hero { padding: 80px 20px; }
+  .hero { height: 60vh; padding: 60px 20px; }
   .hero h1 { font-size: 1.8em; }
   .btn { padding: 12px 25px; font-size: 0.9em; }
   section { padding: 40px 20px; }
