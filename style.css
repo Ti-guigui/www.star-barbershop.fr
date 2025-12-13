@@ -1,94 +1,169 @@
-/* =============================== */
-/* BOUTON BOOKSY BLEU */
-/* =============================== */
-.btn {
-  display: inline-block;
-  background-color: #007BFF; /* Bleu Booksy */
-  color: white;
-  padding: 12px 25px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background 0.3s, transform 0.3s;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.btn:hover {
-  background-color: #0056b3;
-  transform: translateY(-3px); /* petit effet au survol */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
 }
 
-/* Bouton Google différent (optionnel) */
-.google-btn {
-  background-color: #4285F4;
-}
-
-.google-btn:hover {
-  background-color: #3367D6;
-}
-
-/* Texte et bouton HERO au scroll */
-.hero h1,
-.hero p,
-.hero .btn {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-
-.hero h1.visible,
-.hero p.visible,
-.hero .btn.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =============================== */
-/* HERO SECTION - superposition du texte et bouton */
-/* =============================== */
-.hero {
-  position: relative;
-  background: url('image/hero-bg.jpg') center/cover no-repeat; /* optionnel : image de fond */
-  color: white;
+h1, h2 {
+  font-family: 'Playfair Display', serif;
   text-align: center;
-  padding: 150px 20px;
+}
+
+h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: #d4af37;
+  display: block;
+  margin: 10px auto;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.9);
+  padding: 20px 50px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  height: 70px;
+}
+
+nav a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #d4af37;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url("image/hero.jpg") center/cover;
+  display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4); /* contraste pour le texte */
-  z-index: 1;
-}
-
-.hero h1,
-.hero p,
-.hero .btn {
-  position: relative;
-  z-index: 2; /* au-dessus du overlay */
-  margin: 10px 0;
-}
-
-.hero h1 {
+.hero-content h1 {
   font-size: 3rem;
-  font-weight: 700;
 }
 
-.hero p {
-  font-size: 1.5rem;
+.hero-content span {
+  color: #d4af37;
 }
 
-/* =============================== */
-/* ANIMATION AU SCROLL (conserve ton design) */
-/* =============================== */
+.hero-content p {
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+.btn {
+  background: #d4af37;
+  color: #000;
+  padding: 14px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* INFOS */
+.infos {
+  padding: 100px 20px;
+}
+
+.infos-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 40px;
+}
+
+.infos-box {
+  background: #111;
+  padding: 30px;
+  border-radius: 15px;
+  flex: 1;
+}
+
+.infos-box li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #333;
+}
+
+/* POURQUOI NOUS */
+.why {
+  padding: 100px 20px;
+  background: #0f0f0f;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.why-box {
+  background: #111;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.why-box i {
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+/* GALERIE */
+.gallery {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width: 280px;
+  border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #000;
+  color: #777;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .infos-container {
+    flex-direction: column;
+  }
+}
+
 section {
   opacity: 0;
   transform: translateY(40px);
